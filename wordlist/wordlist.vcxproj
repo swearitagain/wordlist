@@ -154,6 +154,7 @@
     <ClInclude Include="calculate.h" />
     <ClInclude Include="calculateInterface.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="word_node.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="calculate.cpp" />
@@ -164,6 +165,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="wordlist.cpp" />
+    <ClCompile Include="word_node.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

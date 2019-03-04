@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 #include <string>
-#include <fstream>
 
 using namespace std;
 
@@ -11,5 +10,10 @@ public:
 	//calculateInterface(vector<string> words);
 	virtual ~calculateInterface();
 
-	virtual vector<string> get_result()=0;
-}; 
+	virtual vector<string> *get_result()=0;
+};
+
+inline calculateInterface::~calculateInterface()
+{
+	return;
+} 

@@ -3,10 +3,16 @@
 
 #include "pch.h"
 #include <iostream>
+//#include "calculateInterface.h"
+#include "calculate.h"
+
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+    std::cout << "Hello World!\n";
+
+	calculateInterface *cal = new calculate({ "half", "pig", "giggle", "fun", "none" }, false);
+	vector<string> *result = cal->get_result();
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单

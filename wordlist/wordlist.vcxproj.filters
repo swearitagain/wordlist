@@ -24,6 +24,9 @@
     <ClInclude Include="calculate.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="word_node.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -33,6 +36,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="calculate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="word_node.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
