@@ -33,20 +33,20 @@ vector<string> *calculate::get_result()
 {
 	for (int i = 0; i < ALPHA_COUNT; i++)
 	{
-		for(word_node current_node: word_map[i])
+		for(auto current_node = word_map[i].begin(); current_node < word_map[i].end(); ++current_node)
 		{
 			current_word_chain.clear();
 			current_letter_count = 0;
-			current_word_chain.push_back(current_node.get_word());
-			current_letter_count += current_node.get_length();
+			current_word_chain.push_back(current_node->get_word());
+			current_letter_count += current_node->get_length();
 
-			current_node.set_used();
-			if(!chain_find_next(current_node))
+			current_node->set_used();
+			if(!chain_find_next(*current_node))
 			{
 				//含有单词环，返回空指针
 				return nullptr;
 			}
-			current_node.clear_used();
+			current_node->clear_used();
 		}
 	}
 	return &longest_word_chain;
@@ -54,28 +54,29 @@ vector<string> *calculate::get_result()
 
 bool calculate::chain_find_next(word_node prev_node)
 {
-	vector<word_node> word_nodes = word_map[prev_node.get_tail()];
-	if(word_nodes.size() == 0)
+	vector<word_node> *word_nodes = &word_map[prev_node.get_tail()];
+	if(word_nodes->size() == 0)
 	{
 		check_current_chain();
 		return true;
 	}
-	for(word_node current_node: word_nodes)
+	for(auto current_node = word_nodes->begin(); current_node < word_nodes->end(); ++current_node)
+	//for(word_node current_node: word_nodes)
 	{
-		if(current_node.is_used())
+		if(current_node->is_used())
 		{
 			has_circle = true;
 			return false;
 		}
-		current_word_chain.push_back(current_node.get_word());
-		current_letter_count += current_node.get_length();
+		current_word_chain.push_back(current_node->get_word());
+		current_letter_count += current_node->get_length();
 
-		current_node.set_used();
-		if(!chain_find_next(current_node))
+		current_node->set_used();
+		if(!chain_find_next(*current_node))
 		{
 			return false;
 		}
-		current_node.clear_used();
+		current_node->clear_used();
 	}
 	return true;
 }

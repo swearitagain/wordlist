@@ -27,7 +27,7 @@ protected:
 	int current_letter_count = 0;
 	vector<string> longest_word_chain;	//最长单词链
 	vector<string> current_word_chain;	//当前单词链
-	bool chain_find_next(word_node prev_node);
+	virtual bool chain_find_next(word_node prev_node);
 	virtual void check_current_chain();
 };
 

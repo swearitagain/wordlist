@@ -14,7 +14,7 @@ public:
 	vector<string> *get_result() override;
 	void check_current_chain() override;
 
-private:
+protected:
 	int assigned_initial;
 	int assigned_tail;
 };

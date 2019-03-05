@@ -6,7 +6,7 @@
 //#include "calculateInterface.h"
 #include "calculate.h"
 #include "specified_calculate.h"
-
+#include "circle_calculate.h"
 int main()
 {
     std::cout << "Hello World!\n";
@@ -20,8 +20,15 @@ int main()
 	result = cal->get_result();
 
 	delete cal;
+
 	cal = new specified_calculate({ "half", "pig", "giggle", "fun", "niupi" }, false, -1, ALPHA_TO_INDEX('e'));
 	result = cal->get_result();
+
+	delete cal;
+
+	cal = new circle_calculate({ "half", "pig", "gap", "fun", "neo", "op" }, false, -1, -1, true);
+	result = cal->get_result();
+
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单

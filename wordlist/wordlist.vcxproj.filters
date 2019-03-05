@@ -30,6 +30,9 @@
     <ClInclude Include="specified_calculate.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="circle_calculate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -45,6 +48,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="specified_calculate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="circle_calculate.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

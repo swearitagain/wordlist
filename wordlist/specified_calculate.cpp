@@ -20,19 +20,19 @@ vector<string>* specified_calculate::get_result()
 	{
 		return calculate::get_result();
 	}
-	for (word_node current_node : word_map[assigned_initial])
+	for (auto current_node = word_map[assigned_initial].begin(); current_node < word_map[assigned_initial].end(); ++current_node)
 	{
 		current_word_chain.clear();
 		current_letter_count = 0;
-		current_word_chain.push_back(current_node.get_word());
-		current_letter_count += current_node.get_length();
+		current_word_chain.push_back(current_node->get_word());
+		current_letter_count += current_node->get_length();
 
-		current_node.set_used();
-		if (!chain_find_next(current_node))
+		current_node->set_used();
+		if (!chain_find_next(*current_node))
 		{
 			return nullptr;
 		}
-		current_node.clear_used();
+		current_node->clear_used();
 	}
 	return &longest_word_chain;
 }
