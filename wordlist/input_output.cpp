@@ -128,8 +128,7 @@ vector<string> input_output::get_params(string s)
 
 vector<string> split(const string &s, const string &seperator) {
 	vector<string> result;
-	
-
+	//TODO
 	return result;
 }
 
@@ -137,6 +136,11 @@ vector<string> split(const string &s, const string &seperator) {
 
 //1.接受vector<string>类型单词链
 //2.输出到solution.txt
-void input_output::output() {
-
+void input_output::output(vector<string> words) {
+	ofstream out_file;
+	out_file.open(out_path);
+	for (int i = 0; i < words.size(); i++) {
+		out_file << words.at(i) << endl;
+	}
 }
+

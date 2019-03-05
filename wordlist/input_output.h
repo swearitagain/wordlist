@@ -14,7 +14,7 @@ public:
 	vector<string> input(); 
 	vector<string> get_params(string s); //获取命令行输入，拆分参数
 
-	void output();
+	void output(vector<string> words);
 
 	vector<string> words;
 	bool is_w; //word-按单词数量统计
