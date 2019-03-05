@@ -154,6 +154,7 @@
     <ClInclude Include="calculate.h" />
     <ClInclude Include="calculateInterface.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="specified_calculate.h" />
     <ClInclude Include="word_node.h" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +165,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="specified_calculate.cpp" />
     <ClCompile Include="wordlist.cpp" />
     <ClCompile Include="word_node.cpp" />
   </ItemGroup>

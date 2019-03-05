@@ -1,10 +1,9 @@
 #include "pch.h"
 #include "calculate.h"
-#include <iostream>
 
 string to_lower_case(string s)
 {
-	for (int i = 0; i < s.length(); i++)
+	for (auto i = 0; i < s.length(); i++)
 	{
 		if(s[i] <= 'Z' && s[i] >= 'A')
 		{
@@ -44,6 +43,7 @@ vector<string> *calculate::get_result()
 			current_node.set_used();
 			if(!chain_find_next(current_node))
 			{
+				//含有单词环，返回空指针
 				return nullptr;
 			}
 			current_node.clear_used();

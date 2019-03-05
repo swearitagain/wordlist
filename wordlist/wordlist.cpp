@@ -5,7 +5,7 @@
 #include <iostream>
 //#include "calculateInterface.h"
 #include "calculate.h"
-
+#include "specified_calculate.h"
 
 int main()
 {
@@ -13,6 +13,15 @@ int main()
 
 	calculateInterface *cal = new calculate({ "half", "pig", "giggle", "fun", "none" }, false);
 	vector<string> *result = cal->get_result();
+
+	delete cal;
+
+	cal = new specified_calculate({ "half", "pig", "giggle", "fun", "none" }, false, ALPHA_TO_INDEX('p'), -1);
+	result = cal->get_result();
+
+	delete cal;
+	cal = new specified_calculate({ "half", "pig", "giggle", "fun", "niupi" }, false, -1, ALPHA_TO_INDEX('e'));
+	result = cal->get_result();
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单

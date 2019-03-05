@@ -11,11 +11,14 @@ class calculate :
 	public calculateInterface
 {
 public:
+	//构造函数两个参数：
+	//1. 字符串数组，由所有单词构成
+	//2. 布尔变量，是否按照字母最多计算单词链
 	calculate(vector<string> words, bool more_letter);
 	~calculate();
 	vector<string> *get_result() override;
 
-private:
+protected:
 	vector<word_node> word_map[ALPHA_COUNT];
 
 	bool has_circle = false;
@@ -25,7 +28,7 @@ private:
 	vector<string> longest_word_chain;	//最长单词链
 	vector<string> current_word_chain;	//当前单词链
 	bool chain_find_next(word_node prev_node);
-	void check_current_chain();
+	virtual void check_current_chain();
 };
 
 
