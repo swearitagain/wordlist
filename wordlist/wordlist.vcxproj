@@ -154,6 +154,9 @@
     <ClInclude Include="calculate.h" />
     <ClInclude Include="calculateInterface.h" />
     <ClInclude Include="circle_calculate.h" />
+    <ClInclude Include="core.h" />
+    <ClInclude Include="exceptions.h" />
+    <ClInclude Include="input_output.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="specified_calculate.h" />
     <ClInclude Include="word_node.h" />
@@ -161,6 +164,8 @@
   <ItemGroup>
     <ClCompile Include="calculate.cpp" />
     <ClCompile Include="circle_calculate.cpp" />
+    <ClCompile Include="core.cpp" />
+    <ClCompile Include="input_output.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -170,6 +175,14 @@
     <ClCompile Include="specified_calculate.cpp" />
     <ClCompile Include="wordlist.cpp" />
     <ClCompile Include="word_node.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\test_case1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
