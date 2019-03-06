@@ -24,6 +24,6 @@ public:
 	bool is_r; //round-是否成环
 	string in_path; //输入文件路径
 	string out_path; //输出文件路径
-	string err_msg;
+	string err_msg; //错误日志
 };
 
