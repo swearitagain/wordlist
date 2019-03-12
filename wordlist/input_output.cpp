@@ -135,6 +135,9 @@ void input_output::output(vector<string> words) {
 	for (int i = 0; i < words.size(); i++) {
 		out_file << words.at(i) << endl;
 	}
+	//for (vector<string>::iterator it = words->begin(); it != words->end(); it++) {
+	//	out_file << *it << endl;
+	//}
 }
 
 
