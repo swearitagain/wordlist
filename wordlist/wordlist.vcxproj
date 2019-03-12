@@ -179,6 +179,12 @@
   <ItemGroup>
     <Text Include="..\test_case1.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\x64\Debug\core.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\x64\Debug\core.lib" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -167,8 +167,8 @@
     <ClCompile Include="unittest1.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\wordlist\wordlist.vcxproj">
-      <Project>{2efaae4e-e148-47b5-b460-dd045482c0d2}</Project>
+    <ProjectReference Include="..\makedll\makedll.vcxproj">
+      <Project>{d4da2319-9c69-461a-ae98-9c9dd489e9a4}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

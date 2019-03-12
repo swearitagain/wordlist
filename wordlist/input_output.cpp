@@ -18,7 +18,6 @@ input_output::~input_output()
 
 }
 
-
 //1.从命令行接受输入-w absolute_path_of_word_list
 //2.解析出-w，并且从绝对路径打开文件，提取文件中的单词
 //3.将单词以vector<string>形式返回
@@ -29,6 +28,9 @@ input_output::~input_output()
 //3. 错误的参数组合 -c -w -t
 //4. 错误的文件格式 xxx.xlsx
 //5. 命令参数是大写，转换为小写后是有效命令 [?] 
+
+//1. 不存在对应的文件名
+//2. 对应文件是一个空文件
 
 //错误处理
 //1.直接从命令行输出提示
@@ -42,7 +44,8 @@ input_output::~input_output()
 //-h e -t t -w absolute_path_of_word_list
 //-r -h e -t t -w absolute_path_of_word_list
 //‪-h e -w ‪E:\软件工程\test_case1.txt
-vector<string> input_output::input() {
+vector<string> input_output::input() 
+{
 	char cmd_in[1000];
 	cin.getline(cmd_in, 1000);
 	string in = string(cmd_in); 
@@ -120,19 +123,6 @@ vector<string> input_output::input() {
 	in_file.close();
 	return result;
 }
-
-vector<string> input_output::get_params(string s)
-{
-	return vector<string>();
-}
-
-vector<string> split(const string &s, const string &seperator) {
-	vector<string> result;
-	//TODO
-	return result;
-}
-
-
 
 //1.接受vector<string>类型单词链
 //2.输出到solution.txt

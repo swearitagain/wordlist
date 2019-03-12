@@ -11,9 +11,8 @@ class input_output
 public:
 	input_output();
 	~input_output();
-	vector<string> input(); 
-	vector<string> get_params(string s); //获取命令行输入，拆分参数
 
+	vector<string> input(); 
 	void output(vector<string> words);
 
 	vector<string> words;
