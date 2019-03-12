@@ -18,28 +18,7 @@
     <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="calculateInterface.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="calculate.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="word_node.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="specified_calculate.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="circle_calculate.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="input_output.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="core.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="exceptions.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,22 +29,7 @@
     <ClCompile Include="wordlist.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="calculate.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="word_node.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="specified_calculate.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="circle_calculate.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="input_output.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="core.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

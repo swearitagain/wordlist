@@ -102,7 +102,10 @@ vector<string> input_output::input()
 	in_path = in.substr(i,in.size());
 	in_file.open(in_path);
 	if (!in_file.is_open()) {
-		//TODO 打不开文件
+		//cout << "非法输入：文件不存在" << endl;
+		//system("pause");
+		//exit(0);
+		throw exception("非法输入：文件不存在");
 	}
 	char c;
 	string tmp;
@@ -133,4 +136,6 @@ void input_output::output(vector<string> words) {
 		out_file << words.at(i) << endl;
 	}
 }
+
+
 

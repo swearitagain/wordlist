@@ -4,13 +4,16 @@
 #include <iostream>
 #include <string>
 #include "pch.h"
-#include "calculate.h"
-#include "specified_calculate.h"
-#include "circle_calculate.h"
-#include "core.h"
+
 #include "input_output.h"
 
 using namespace std;
+extern "C" __declspec(dllimport) int gen_chain(char* words[], int len, char* result[]);
+extern "C" __declspec(dllimport) int gen_chain_word(char* words[], int len, char* result[], char head, char tail, bool enable_loop);
+extern "C" __declspec(dllimport) int gen_chain_char(char* words[], int len, char* result[], char head, char tail, bool enable_loop);
+extern "C" __declspec(dllimport) vector<string>* gen_chain_word_v(vector<string> words, char head, char tail, bool enable_loop);
+extern "C" __declspec(dllimport) vector<string>* gen_chain_char_v(vector<string> words, char head, char tail, bool enable_loop);
+
 
 int main()
 {
@@ -64,42 +67,68 @@ int main()
 
 	//system("pause");
 
-	//输入测试
-	//-w ‪E:\sofware engineering\pair programming\wordlist\test dependency backup\test_case1.txt
-	input_output in_out;
-	vector<string> raw_input_words = in_out.input();
-	char *result[1000];
-	int result_len;
-	core *my_core = new core();
-
-	char *input_words[1000];
-	for (int i = 0; i < raw_input_words.size(); i++) {
-		const char *word = raw_input_words.at(i).data();
-		char * wordArr = new char[strlen(word) + 1];
-		input_words[i] = wordArr;
-		for (int k = 0; k < strlen(word) + 1; k++) {
-			wordArr[k] = word[k];
-		}
-	}
-
-	//for (int i = 0; i < raw_input_words.size(); i++) {
-	//	cout << input_words[i] << endl;
-	//}
 	try {
-		//1. 测试正常-w
-		result_len = my_core->gen_chain(input_words, raw_input_words.size(),result);
+		//-w ‪E:\sofware engineering\pair programming\wordlist\test_case\test_case1.txt
+		//-w ‪E:\sofware engineering\pair programming\wordlist\test_case\test_case2.txt
+		//-w ‪E:\sofware engineering\pair programming\wordlist\test_case\test_case3.txt
+		//-w ‪E:\sofware engineering\pair programming\wordlist\test_case\test_case4.txt
+		input_output in_out;
+		vector<string> raw_input_words = in_out.input();
+		char *result[1000];
+		int result_len;
+
+		char *input_words[1000];
+		for (int i = 0; i < raw_input_words.size(); i++) {
+			const char *word = raw_input_words.at(i).data();
+			char * wordArr = new char[strlen(word) + 1];
+			input_words[i] = wordArr;
+			for (int k = 0; k < strlen(word) + 1; k++) {
+				wordArr[k] = word[k];
+			}
+		}
+
+		for (int i = 0; i < raw_input_words.size(); i++) {
+			cout << input_words[i] << endl;
+		}
+
+		//1. 测试正常-w | 成环测试
+		result_len = gen_chain(input_words, raw_input_words.size(),result);
 		cout << result_len << endl;
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < result_len; i++) {
 			cout << result[i] << endl;
 		}
 
 		//2. 测试-h -t参数
-
+		char *result2[1000];
+		result_len = gen_chain_word(input_words,raw_input_words.size(),result2,'e',0,false);
+		cout << result_len << endl;
+		for (int i = 0; i < result_len; i++) {
+			cout << result2[i] << endl;
+		}
 
 		//3. 测试-c 参数
+		char *result3[1000];
+		result_len = gen_chain_char(input_words, raw_input_words.size(), result3, 0, 0, false);
+		cout << result_len << endl;
+		for (int i = 0; i < result_len; i++) {
+			cout << result3[i] << endl;
+		}
+
+		//4. 压力测试
+		char *result4[1000];
+		cout << "begin" << endl;
+		result_len = gen_chain_word(input_words, raw_input_words.size(), result4, 0, 0, true);
+		cout << result_len << endl;
+		for (int i = 0; i < result_len; i++) {
+			cout << result4[i] << endl;
+		}
+		cout << "end" << endl;
+
+		//6.其他函数测试
+		gen_chain_word_v(raw_input_words, 0, 0, true);
+		gen_chain_char_v(raw_input_words, 0, 0, true);
 
 
-		//4. 
 	}
 	catch (exception e) {
 		cout << e.what() << endl;
