@@ -11,8 +11,8 @@ using namespace std;
 extern "C" __declspec(dllimport) int gen_chain(char* words[], int len, char* result[]);
 extern "C" __declspec(dllimport) int gen_chain_word(char* words[], int len, char* result[], char head, char tail, bool enable_loop);
 extern "C" __declspec(dllimport) int gen_chain_char(char* words[], int len, char* result[], char head, char tail, bool enable_loop);
-extern "C" __declspec(dllimport) vector<string>* gen_chain_word_v(vector<string> words, char head, char tail, bool enable_loop);
-extern "C" __declspec(dllimport) vector<string>* gen_chain_char_v(vector<string> words, char head, char tail, bool enable_loop);
+//extern "C" __declspec(dllimport) vector<string>* gen_chain_word_v(vector<string> words, char head, char tail, bool enable_loop);
+//extern "C" __declspec(dllimport) vector<string>* gen_chain_char_v(vector<string> words, char head, char tail, bool enable_loop);
 
 
 int main()
@@ -98,6 +98,13 @@ int main()
 			cout << result[i] << endl;
 		}
 
+		//输出到文件
+		vector<string> result_v;
+		for (int i = 0; i < result_len; i++) {
+			result_v.push_back(result[i]);
+		}
+		in_out.output(result_v);
+
 		//2. 测试-h -t参数
 		char *result2[1000];
 		result_len = gen_chain_word(input_words,raw_input_words.size(),result2,'e',0,false);
@@ -125,8 +132,8 @@ int main()
 		cout << "end" << endl;
 
 		//6.其他函数测试
-		gen_chain_word_v(raw_input_words, 0, 0, true);
-		gen_chain_char_v(raw_input_words, 0, 0, true);
+		//gen_chain_word_v(raw_input_words, 0, 0, true);
+		//gen_chain_char_v(raw_input_words, 0, 0, true);
 
 
 	}
