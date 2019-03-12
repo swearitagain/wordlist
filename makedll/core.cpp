@@ -11,9 +11,7 @@
 
 using namespace std;
 
-core::core()
-{
-}
+core::core(){}
 
 void core::check_head_tail(char head, char tail)
 {

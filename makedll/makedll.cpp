@@ -29,12 +29,4 @@ extern "C"
 		return core::gen_chain_char(words, len, result, head, tail, enable_loop);
 	}
 
-	vector<string> __declspec(dllexport) * gen_chain_word_v(vector<string> words, char head, char tail, bool enable_loop)
-	{
-		return core::gen_chain_word_v(words, head, tail, enable_loop);
-	}
-	vector<string> __declspec(dllexport) * gen_chain_char_v(vector<string> words, char head, char tail, bool enable_loop)
-	{
-		return core::gen_chain_char_v(words, head, tail, enable_loop);
-	}
 }

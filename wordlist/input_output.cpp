@@ -57,37 +57,38 @@ vector<string> input_output::input()
 			char cur = in.at(i);
 			if (cur == 'w') {
 				if (is_w) {
-					err_msg = "-w param repeat"; break;
+					throw exception("-w param repeat");
 				}
 				is_w = true;
 			}
 			else if (cur == 'c') {
 				if (is_c) {
-					err_msg = "-c param repeat"; break;
+					throw exception("-c param repeat");
 				}
 				is_c = true;
 			}
 			else if (cur == 'h') {
 				if (is_h != 0) {
-					err_msg = "-h param repeat"; break;
+					throw exception("-h param repeat");
 				}
 				i+=2; //get the blank char
-				is_h = in.at(i) - 'a';
+				is_h = in.at(i);
 			}
 			else if (cur == 't') {
 				if (is_t != 0) {
-					err_msg = "-t param repeat"; break;
+					throw exception("-t param repeat");
 				}
 				i += 2; //get the blank char
-				is_t = in.at(i) - 'a';
+				is_t = in.at(i);
 			}
 			else if (cur == 'r') {
 				if (is_r) {
-					err_msg = "-r param repeat"; break;
+					throw exception("-r param repeat");
 				}
+				is_r = true;
 			}
 			else {
-				err_msg = "invalid param"; break;
+				throw exception("invalid param");
 			}
 		}
 		else if (in.at(i) != ' ') { //read the absolute path of input file 
@@ -95,16 +96,14 @@ vector<string> input_output::input()
 		}
 		i++;
 	}
+
 	
-	//打开文件逻辑
+	//打开文件,处理字符串
 	ifstream in_file;
 	vector<string> result;
 	in_path = in.substr(i,in.size());
 	in_file.open(in_path);
 	if (!in_file.is_open()) {
-		//cout << "非法输入：文件不存在" << endl;
-		//system("pause");
-		//exit(0);
 		throw exception("非法输入：文件不存在");
 	}
 	char c;
@@ -135,9 +134,6 @@ void input_output::output(vector<string> words) {
 	for (int i = 0; i < words.size(); i++) {
 		out_file << words.at(i) << endl;
 	}
-	//for (vector<string>::iterator it = words->begin(); it != words->end(); it++) {
-	//	out_file << *it << endl;
-	//}
 }
 
 
