@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "pch.h"
 #include "core.h"
 #include <vector>
 #include <string>
@@ -43,7 +43,7 @@ void core::char_star_to_string(char* words[], int len, vector<string> *word_vect
 		}
 		if (w[w.size() - 1] < 'a' && w[w.size() - 1] > 'z')
 		{
-			throw exception("非法单词");
+			throw exception ("非法单词");
 		}
 		word_vector->push_back(w);
 	}
@@ -67,8 +67,7 @@ int core::gen_chain(char* words[], int len, char* result[])
 	vector<string> word_vector;
 	try {
 		char_star_to_string(words, len, &word_vector);
-	}
-	catch (exception e)
+	}catch(exception e)
 	{
 		throw e;
 	}
@@ -87,7 +86,7 @@ int core::gen_chain(char* words[], int len, char* result[])
 int core::gen_chain_word(char* words[], int len, char* result[], char head, char tail, bool enable_loop)
 {
 	vector<string> word_vector;
-	try {
+	try{
 		char_star_to_string(words, len, &word_vector);
 	}
 	catch (exception e)
@@ -116,7 +115,7 @@ int core::gen_chain_word(char* words[], int len, char* result[], char head, char
 int core::gen_chain_char(char* words[], int len, char* result[], char head, char tail, bool enable_loop)
 {
 	vector<string> word_vector;
-	try {
+	try{
 		char_star_to_string(words, len, &word_vector);
 	}
 	catch (exception e)
