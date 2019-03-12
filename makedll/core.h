@@ -26,11 +26,6 @@ public:
 	//计算最多字母数量的最长单词链
 	static int gen_chain_char(char* words[], int len, char* result[], char head, char tail, bool enable_loop);
 
-	static vector<string>* gen_chain_word_v(vector<string> words, char head, char tail, bool enable_loop);
-	
-
-	static vector<string>* gen_chain_char_v(vector<string> words, char head, char tail, bool enable_loop);
-
 	~core();
 private:
 

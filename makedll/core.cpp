@@ -142,33 +142,6 @@ int core::gen_chain_char(char* words[], int len, char* result[], char head, char
 	return result_vector->size();
 }
 
-vector<string>* core::gen_chain_word_v(vector<string> words, char head, char tail, bool enable_loop)
-{
-	try {
-		check_head_tail(head, tail);
-	}
-	catch (exception e)
-	{
-		throw e;
-	}
-	circle_calculate calculate(words, false, head == 0 ? -1 : ALPHA_TO_INDEX(head), tail == 0 ? -1 : ALPHA_TO_INDEX(tail), enable_loop);
-	return new vector<string>(*calculate.get_result());
-}
-
-vector<string>* core::gen_chain_char_v(vector<string> words, char head, char tail, bool enable_loop)
-{
-	try {
-		check_head_tail(head, tail);
-	}
-	catch (exception e)
-	{
-		throw e;
-	}
-	circle_calculate calculate(words, true, head == 0 ? -1 : ALPHA_TO_INDEX(head), tail == 0 ? -1 : ALPHA_TO_INDEX(tail), enable_loop);
-	return new vector<string>(*calculate.get_result());
-}
-
-
 core::~core()
 {
 }
