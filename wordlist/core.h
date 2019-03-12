@@ -16,6 +16,7 @@ class core
 //后两个接口类似，只是输入输出换成了vector<string>和vector<string>*
 public:
 	core();
+	static void check_head_tail(char head, char tail);
 	static void char_star_to_string(char* words[], int len, vector<string> *word_vector);
 	static void string_to_char_star(char* result[], vector<string>* result_vector);
 

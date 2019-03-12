@@ -18,7 +18,7 @@ public:
 	core();
 	static void char_star_to_string(char* words[], int len, vector<string> *word_vector);
 	static void string_to_char_star(char* result[], vector<string>* result_vector);
-
+	static void check_head_tail(char head, char tail);
 	//计算最多单词数量的最长单词链
 	static int gen_chain(char* words[], int len, char* result[]);
 	//计算最多单词数量的最长单词链
@@ -27,6 +27,7 @@ public:
 	static int gen_chain_char(char* words[], int len, char* result[], char head, char tail, bool enable_loop);
 
 	vector<string>* gen_chain_word_v(vector<string> words, char head, char tail, bool enable_loop);
+	
 
 	vector<string>* gen_chain_char_v(vector<string> words, char head, char tail, bool enable_loop);
 

@@ -2,6 +2,7 @@
 #include "core.h"
 #include <vector>
 #include <string>
+#include <algorithm>  
 #include "calculate.h"
 #include <iostream>
 #include "specified_calculate.h"
@@ -10,22 +11,47 @@
 
 using namespace std;
 
-
 core::core()
 {
+}
+
+void core::check_head_tail(char head, char tail)
+{
+	if ((head < 'a' || head > 'z') && head != 0)
+	{
+		throw exception("首字母约束不合法”");
+	}
+	if ((tail < 'a' || tail > 'z') && tail != 0)
+	{
+		throw exception("尾字母约束不合法”");
+	}
 }
 
 void core::char_star_to_string(char* words[], int len, vector<string> *word_vector)
 {
 	for (int i = 0; i < len; i++)
 	{
-		word_vector->push_back(words[i]);
+		string w = words[i];
+		transform(w.begin(), w.end(), w.begin(), ::tolower);
+		if (w.size() == 0)
+		{
+			throw exception("单词不能为空");
+		}
+		if (w[0] < 'a' && w[0] > 'z')
+		{
+			throw exception("非法单词");
+		}
+		if (w[w.size() - 1] < 'a' && w[w.size() - 1] > 'z')
+		{
+			throw exception("非法单词");
+		}
+		word_vector->push_back(w);
 	}
 }
 
 void core::string_to_char_star(char* words[], vector<string>* word_vector)
 {
-	for(auto i = 0; i < word_vector->size(); i++)
+	for (auto i = 0; i < word_vector->size(); i++)
 	{
 		////words[i] = new char[word_vector->at(i).size()];
 		//words[i] = const_cast<char*>(word_vector->at(i).c_str());
@@ -39,12 +65,17 @@ void core::string_to_char_star(char* words[], vector<string>* word_vector)
 int core::gen_chain(char* words[], int len, char* result[])
 {
 	vector<string> word_vector;
-	char_star_to_string(words, len, &word_vector);
-
+	try {
+		char_star_to_string(words, len, &word_vector);
+	}
+	catch (exception e)
+	{
+		throw e;
+	}
 	calculate calculate(word_vector, false);
 	vector<string> *result_vector = calculate.get_result();
 
-	if(result_vector== nullptr)
+	if (result_vector == nullptr)
 	{
 		throw exception("单词文本隐含单词环");
 	}
@@ -56,18 +87,21 @@ int core::gen_chain(char* words[], int len, char* result[])
 int core::gen_chain_word(char* words[], int len, char* result[], char head, char tail, bool enable_loop)
 {
 	vector<string> word_vector;
-	char_star_to_string(words, len, &word_vector);
-
-	if((head < 'a' || head > 'z') && head != 0)
-	{
-		throw exception("首字母约束不合法”");
+	try {
+		char_star_to_string(words, len, &word_vector);
 	}
-	if((tail < 'a' || tail > 'z') && tail != 0)
+	catch (exception e)
 	{
-		throw exception("尾字母约束不合法”");
+		throw e;
 	}
-
-	circle_calculate calculate(word_vector, false, head == 0 ? -1 : ALPHA_TO_INDEX(head), tail == 0 ? -1 : ALPHA_TO_INDEX(tail),enable_loop);
+	try {
+		check_head_tail(head, tail);
+	}
+	catch (exception e)
+	{
+		throw e;
+	}
+	circle_calculate calculate(word_vector, false, head == 0 ? -1 : ALPHA_TO_INDEX(head), tail == 0 ? -1 : ALPHA_TO_INDEX(tail), enable_loop);
 	vector<string> *result_vector = calculate.get_result();
 
 	if (!enable_loop && result_vector == nullptr)
@@ -82,17 +116,20 @@ int core::gen_chain_word(char* words[], int len, char* result[], char head, char
 int core::gen_chain_char(char* words[], int len, char* result[], char head, char tail, bool enable_loop)
 {
 	vector<string> word_vector;
-	char_star_to_string(words, len, &word_vector);
-
-	if ((head < 'a' || head > 'z') && head != 0)
-	{
-		throw exception("首字母约束不合法”");
+	try {
+		char_star_to_string(words, len, &word_vector);
 	}
-	if ((tail < 'a' || tail > 'z') && tail != 0)
+	catch (exception e)
 	{
-		throw exception("尾字母约束不合法”");
+		throw e;
 	}
-
+	try {
+		check_head_tail(head, tail);
+	}
+	catch (exception e)
+	{
+		throw e;
+	}
 	circle_calculate calculate(word_vector, true, head == 0 ? -1 : ALPHA_TO_INDEX(head), tail == 0 ? -1 : ALPHA_TO_INDEX(tail), enable_loop);
 	vector<string> *result_vector = calculate.get_result();
 
@@ -107,30 +144,26 @@ int core::gen_chain_char(char* words[], int len, char* result[], char head, char
 
 vector<string>* core::gen_chain_word_v(vector<string> words, char head, char tail, bool enable_loop)
 {
-	if ((head < 'a' || head > 'z') && head != 0)
-	{
-		throw exception("首字母约束不合法”");
+	try {
+		check_head_tail(head, tail);
 	}
-	if ((tail < 'a' || tail > 'z') && tail != 0)
+	catch (exception e)
 	{
-		throw exception("尾字母约束不合法”");
+		throw e;
 	}
-
 	circle_calculate calculate(words, false, head == 0 ? -1 : ALPHA_TO_INDEX(head), tail == 0 ? -1 : ALPHA_TO_INDEX(tail), enable_loop);
 	return new vector<string>(*calculate.get_result());
 }
 
 vector<string>* core::gen_chain_char_v(vector<string> words, char head, char tail, bool enable_loop)
 {
-	if ((head < 'a' || head > 'z') && head != 0)
-	{
-		throw exception("首字母约束不合法”");
+	try {
+		check_head_tail(head, tail);
 	}
-	if ((tail < 'a' || tail > 'z') && tail != 0)
+	catch (exception e)
 	{
-		throw exception("尾字母约束不合法”");
+		throw e;
 	}
-
 	circle_calculate calculate(words, true, head == 0 ? -1 : ALPHA_TO_INDEX(head), tail == 0 ? -1 : ALPHA_TO_INDEX(tail), enable_loop);
 	return new vector<string>(*calculate.get_result());
 }
