@@ -35,7 +35,7 @@ calculate::calculate(vector<string> words, bool more_letter)
 		//s = to_lower_case(s);
 		const auto map_line = ALPHA_TO_INDEX(s[0]);
 		if (check_repeat(map_line, s)) {
-			word_node current_node(s.length(), ALPHA_TO_INDEX(s[s.length() - 1]), s);
+			word_node current_node(int(s.length()), ALPHA_TO_INDEX(s[s.length() - 1]), s);
 			word_map[map_line].push_back(current_node);
 		}
 	}

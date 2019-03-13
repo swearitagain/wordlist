@@ -14,7 +14,7 @@
 //extern "C" MAKEDLL_API void _stdcall DestroyExportObj(core* mycore);
 extern "C"
 {
-	int __declspec(dllexport) gen_chain(char* words[], int len, char* result[])
+	int __declspec(dllexport) gen_chain(char* words[], int len, char* result[]) throw(...)
 	{
 		try {
 			return core::gen_chain(words, len, result);
@@ -24,7 +24,7 @@ extern "C"
 		}
 	}
 
-	int __declspec(dllexport) gen_chain_word(char* words[], int len, char* result[], char head, char tail, bool enable_loop)
+	int __declspec(dllexport) gen_chain_word(char* words[], int len, char* result[], char head, char tail, bool enable_loop) throw(...)
 	{
 		try{
 			return core::gen_chain_word(words, len, result, head, tail, enable_loop);
@@ -35,7 +35,7 @@ extern "C"
 		}
 	}
 
-	int __declspec(dllexport) gen_chain_char(char* words[], int len, char* result[], char head, char tail, bool enable_loop)
+	int __declspec(dllexport) gen_chain_char(char* words[], int len, char* result[], char head, char tail, bool enable_loop) throw(...) 
 	{
 		try {
 			return core::gen_chain_char(words, len, result, head, tail, enable_loop);

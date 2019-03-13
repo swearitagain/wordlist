@@ -83,7 +83,7 @@ int core::gen_chain(char* words[], int len, char* result[])
 	}
 
 	string_to_char_star(result, result_vector);
-	return result_vector->size();
+	return int(result_vector->size());
 }
 
 int core::gen_chain_word(char* words[], int len, char* result[], char head, char tail, bool enable_loop)
@@ -112,7 +112,7 @@ int core::gen_chain_word(char* words[], int len, char* result[], char head, char
 	}
 
 	string_to_char_star(result, result_vector);
-	return result_vector->size();
+	return int(result_vector->size());
 }
 
 int core::gen_chain_char(char* words[], int len, char* result[], char head, char tail, bool enable_loop)
@@ -141,7 +141,7 @@ int core::gen_chain_char(char* words[], int len, char* result[], char head, char
 	}
 
 	string_to_char_star(result, result_vector);
-	return result_vector->size();
+	return int(result_vector->size());
 }
 
 core::~core()
