@@ -84,20 +84,53 @@ int main()
 	//	cout << e.what() << endl;
 	//}
 
-	try {
-		vector<string> raw_input_words;
-		char *input_words_tmp[1] = {};
-		char *result_tmp[1] = {};
-		gen_chain(input_words_tmp,1, result_tmp);
+	//try {
+	//	vector<string> raw_input_words;
+	//	char *input_words_tmp[1] = {};
+	//	char *result_tmp[1] = {};
+	//	gen_chain(input_words_tmp,1, result_tmp);
 
-	}
-	catch (exception e) {
-		cout << e.what() << endl;;
-	}
+	//}
+	//catch (exception e) {
+	//	cout << e.what() << endl;;
+	//}
 
 
 	//----split----
 	//----main function----
+	try {
+		input_output in_out;
+		vector<string> raw_input_words = in_out.input();
+		char *result[1000];
+		int result_len = 0;
+
+		char *input_words[1000];
+		for (int i = 0; i < raw_input_words.size(); i++) {
+			const char *word = raw_input_words.at(i).data();
+			char * wordArr = new char[strlen(word) + 1];
+			input_words[i] = wordArr;
+			for (int k = 0; k < strlen(word) + 1; k++) {
+				wordArr[k] = word[k];
+			}
+		}
+
+		if (in_out.is_w)
+			result_len = gen_chain_word(input_words,raw_input_words.size(),result,in_out.is_h,in_out.is_t,in_out.is_r);
+		if(in_out.is_c)
+			result_len = gen_chain_char(input_words, raw_input_words.size(), result, in_out.is_h, in_out.is_t, in_out.is_r);
+
+		//输出到文件
+		vector<string> result_v;
+		for (int i = 0; i < result_len; i++) {
+			result_v.push_back(result[i]);
+		}
+		in_out.output(result_v);
+		cout << "done" << endl;
+	}
+	catch (exception e) {
+		e.what();
+	}
+
 
 
 	system("pause");
