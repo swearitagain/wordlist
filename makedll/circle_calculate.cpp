@@ -40,6 +40,8 @@ bool circle_calculate::chain_find_next(word_node prev_node)
 			return false;
 		}
 		current_node->clear_used();
+		current_word_chain.pop_back();
+		current_letter_count -= current_node->get_length();
 	}
 	if (!has_next_word)
 	{

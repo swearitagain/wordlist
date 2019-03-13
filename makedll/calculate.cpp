@@ -1,5 +1,8 @@
 #include "stdafx.h"
 #include "calculate.h"
+#include<string>
+
+using namespace std;
 
 string to_lower_case(string s)
 {
@@ -13,13 +16,28 @@ string to_lower_case(string s)
 	return s;
 }
 
+bool calculate::check_repeat(const int map_line, string current_string)
+{
+	for (auto temp_string:word_map[map_line])
+	{
+		if(current_string.compare(temp_string.get_word()) == 0)
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
 calculate::calculate(vector<string> words, bool more_letter)
 {
 	for(string s: words)
 	{
-		s = to_lower_case(s);
-		word_node current_node(s.length(), ALPHA_TO_INDEX(s[s.length() - 1]), s);
-		word_map[ALPHA_TO_INDEX(s[0])].push_back(current_node);
+		//s = to_lower_case(s);
+		const auto map_line = ALPHA_TO_INDEX(s[0]);
+		if (check_repeat(map_line, s)) {
+			word_node current_node(s.length(), ALPHA_TO_INDEX(s[s.length() - 1]), s);
+			word_map[map_line].push_back(current_node);
+		}
 	}
 	this->more_letter = more_letter;
 }
@@ -47,10 +65,14 @@ vector<string> *calculate::get_result()
 				return nullptr;
 			}
 			current_node->clear_used();
+			//current_word_chain.pop_back();
+			//current_letter_count = 0;
 		}
 	}
 	return &longest_word_chain;
 }
+
+
 
 bool calculate::chain_find_next(word_node prev_node)
 {
@@ -77,6 +99,8 @@ bool calculate::chain_find_next(word_node prev_node)
 			return false;
 		}
 		current_node->clear_used();
+		current_word_chain.pop_back();
+		current_letter_count-= current_node->get_length();
 	}
 	return true;
 }
