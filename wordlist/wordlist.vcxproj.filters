@@ -42,6 +42,7 @@
     <None Include="..\x64\Debug\core.dll">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\x64\Debug\core.lib">

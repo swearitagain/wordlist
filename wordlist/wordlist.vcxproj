@@ -169,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\x64\Debug\core.dll" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\x64\Debug\core.lib" />
