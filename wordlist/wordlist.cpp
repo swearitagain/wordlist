@@ -39,7 +39,6 @@ int main()
 			result_v.push_back(result[i]);
 		}
 		in_out.output(result_v);
-		cout << "done" << endl;
 	}
 	catch (exception e) {
 		e.what();
