@@ -27,6 +27,10 @@ void core::check_head_tail(char head, char tail)
 
 void core::char_star_to_string(char* words[], int len, vector<string> *word_vector)
 {
+	if(!words[0])
+	{
+		throw exception("单词表不存在");
+	}
 	for (int i = 0; i < len; i++)
 	{
 		string w = words[i];

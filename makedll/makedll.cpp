@@ -16,17 +16,35 @@ extern "C"
 {
 	int __declspec(dllexport) gen_chain(char* words[], int len, char* result[])
 	{
-		return core::gen_chain(words, len, result);
+		try {
+			return core::gen_chain(words, len, result);
+		}catch (exception e)
+		{
+			throw e;
+		}
 	}
 
 	int __declspec(dllexport) gen_chain_word(char* words[], int len, char* result[], char head, char tail, bool enable_loop)
 	{
-		return core::gen_chain_word(words, len, result, head, tail, enable_loop);
+		try{
+			return core::gen_chain_word(words, len, result, head, tail, enable_loop);
+		}
+		catch (exception e)
+		{
+			throw e;
+		}
 	}
 
 	int __declspec(dllexport) gen_chain_char(char* words[], int len, char* result[], char head, char tail, bool enable_loop)
 	{
-		return core::gen_chain_char(words, len, result, head, tail, enable_loop);
+		try {
+			return core::gen_chain_char(words, len, result, head, tail, enable_loop);
+			
+		}
+		catch (exception e)
+		{
+			throw e;
+		}
 	}
 
 }
