@@ -114,7 +114,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>..\wordlist\x64\Debug\calculate.obj;..\wordlist\x64\Debug\circle_calculate.obj;..\wordlist\x64\Debug\core.obj;..\wordlist\x64\Debug\input_output.obj;..\wordlist\x64\Debug\pch.obj;..\wordlist\x64\Debug\specified_calculate.obj;..\wordlist\x64\Debug\word_node.obj;..\wordlist\x64\Debug\wordlist.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\wordlist\x64\Debug\input_output.obj;..\wordlist\x64\Debug\pch.obj;..\wordlist\x64\Debug\wordlist.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

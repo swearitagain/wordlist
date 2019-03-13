@@ -96,7 +96,6 @@ vector<string> input_output::input()
 		}
 		i++;
 	}
-
 	
 	//打开文件,处理字符串
 	ifstream in_file;
