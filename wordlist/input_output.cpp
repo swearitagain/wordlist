@@ -130,8 +130,13 @@ vector<string> input_output::input(int argc, char * argv[])
 			}
 		}
 		else {
-			j = i;
-			break;
+			if (is_w == false && is_c == false) {
+				continue;
+			}
+			else {
+				j = i;
+				break;
+			}
 		}
 	}
 	in_path = "";
@@ -141,7 +146,9 @@ vector<string> input_output::input(int argc, char * argv[])
 	in_path = in_path + argv[argc - 1];
 	//in_path = in.substr(i,in.size());
 	//in_path = argv[argc - 2];
-	ofstream out_file;
+
+
+	/*ofstream out_file;
 	out_file.open("test.txt");
 	out_file << in_path;
 	out_file << is_h << endl;
@@ -151,9 +158,7 @@ vector<string> input_output::input(int argc, char * argv[])
 	out_file << is_c << endl;
 	for (int i = 0; i < argc; i++) {
 		out_file << argv[i] << endl;
-	}
-	out_file << tmp222 << endl;
-	out_file << tmp222[0];
+	}*/
 
 	in_file.open(in_path);
 	if (!in_file.is_open()) {
