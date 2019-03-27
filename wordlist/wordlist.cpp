@@ -29,8 +29,8 @@ int main()
 		}
 
 		if (in_out.is_w)
-			result_len = gen_chain_word(input_words,raw_input_words.size(),result,in_out.is_h,in_out.is_t,in_out.is_r);
-		if(in_out.is_c)
+			result_len = gen_chain_word(input_words, raw_input_words.size(), result, in_out.is_h, in_out.is_t, in_out.is_r);
+		if (in_out.is_c)
 			result_len = gen_chain_char(input_words, raw_input_words.size(), result, in_out.is_h, in_out.is_t, in_out.is_r);
 
 		//输出到文件
@@ -46,4 +46,3 @@ int main()
 
 	system("pause");
 }
-

@@ -85,8 +85,12 @@ bool calculate::chain_find_next(word_node prev_node)
 	for(auto current_node = word_nodes->begin(); current_node < word_nodes->end(); ++current_node)
 	//for(word_node current_node: word_nodes)
 	{
-		if(current_node->is_used())
+		if(current_node->is_used() )
 		{
+			if (current_node->get_word() == prev_node.get_word())
+			{
+				continue;
+			}
 			has_circle = true;
 			return false;
 		}

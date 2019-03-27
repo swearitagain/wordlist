@@ -1,2 +1,4 @@
-are
-eng
+algebra
+apple
+elephant
+trick

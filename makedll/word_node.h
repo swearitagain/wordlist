@@ -13,7 +13,7 @@ public:
 	bool is_used();
 	void set_used();
 	void clear_used();
-private:
+
 	string word;
 	int length;	//单词长度
 	int tail;	//单词尾字母所对应序号
