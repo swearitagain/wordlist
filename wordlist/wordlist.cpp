@@ -10,11 +10,11 @@ extern "C" __declspec(dllimport) int gen_chain(char* words[], int len, char* res
 extern "C" __declspec(dllimport) int gen_chain_word(char* words[], int len, char* result[], char head, char tail, bool enable_loop);
 extern "C" __declspec(dllimport) int gen_chain_char(char* words[], int len, char* result[], char head, char tail, bool enable_loop);
 
-int main()
+int main(int argc, char * argv[])
 {
 	try {
 		input_output in_out;
-		vector<string> raw_input_words = in_out.input();
+		vector<string> raw_input_words = in_out.input(argc,argv);
 		char *result[1000];
 		int result_len = 0;
 

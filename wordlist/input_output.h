@@ -12,7 +12,7 @@ public:
 	input_output();
 	~input_output();
 
-	vector<string> input(); 
+	vector<string> input(int argc, char * argv[]);
 	void output(vector<string> words);
 
 	vector<string> words;
