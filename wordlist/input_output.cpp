@@ -121,9 +121,13 @@ vector<string> input_output::input(int argc, char * argv[])
 				tmp222 = argv[i + 1];
 				//is_h = argv[i+1][0]; //head char
 				is_h = tmp222[0];
+				i++;
 			}
 			else if (argv[i][1] == 't') {
-				is_t = argv[i+1][0]; //tail char
+				tmp222 = argv[i + 1];
+				//is_t = argv[i+1][0]; //tail char
+				is_t = tmp222[0];
+				i++;
 			}
 			else if (argv[i][1] == 'r') {
 				is_r = true;
@@ -150,7 +154,7 @@ vector<string> input_output::input(int argc, char * argv[])
 
 	/*ofstream out_file;
 	out_file.open("test.txt");
-	out_file << in_path;
+	out_file << in_path << endl;
 	out_file << is_h << endl;
 	out_file << is_t << endl;
 	out_file << is_w << endl;
